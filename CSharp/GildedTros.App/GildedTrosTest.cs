@@ -3,12 +3,13 @@ using Xunit;
 
 namespace GildedTros.App
 {
-    public class GildedRoseTests
+    public class GildedTrosTests
     {
         private static Item CreateItem(string name, int sellIn, int quality)
-            => new Item { Name = name, SellIn = sellIn, Quality = quality };
+            => new()
+            { Name = name, SellIn = sellIn, Quality = quality };
 
-        private void UpdateOneDay(Item item)
+        private static void UpdateOneDay(Item item)
         {
             var app = new GildedTros(new List<Item> { item });
             app.UpdateQuality();
