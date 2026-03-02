@@ -5,7 +5,7 @@ namespace GildedTros.App
 {
     public class GildedTros
     {
-        IList<Item> Items;
+        public IList<Item> Items { get; private set; }
         public GildedTros(IList<Item> Items)
         {
             this.Items = Items;
