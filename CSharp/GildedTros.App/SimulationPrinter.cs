@@ -17,7 +17,7 @@ namespace GildedTros.App
         /// <param name="numberOfDays"></param>
         public void Run(int numberOfDays)
         {
-            for (var day = 0; day <= numberOfDays + 1; day++)
+            for (var day = 0; day < numberOfDays ; day++)
             {
                 PrintDay(day);
                 _app.UpdateQuality();
