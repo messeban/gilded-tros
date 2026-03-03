@@ -12,7 +12,7 @@ namespace GildedTros.App
             var app = new GildedTros(items);
 
             var simulation = new SimulationPrinter(app);
-            simulation.Run(31);
+            simulation.Run(numberOfDays: 30);
         }
     }
 }
