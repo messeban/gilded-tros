@@ -9,7 +9,7 @@ namespace GildedTros.App
             Console.WriteLine("OMGHAI!");
 
             var items = InventorySeed.Create();
-            var app = new GildedTros(items);
+            var app = GildedTros.Create(items);
 
             var simulation = new SimulationPrinter(app);
             simulation.Run(numberOfDays: 30);

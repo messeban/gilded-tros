@@ -1,4 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using ApprovalUtilities.Persistence;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using Xunit;
 
 namespace GildedTros.App
@@ -11,7 +14,7 @@ namespace GildedTros.App
 
         private static void UpdateOneDay(Item item)
         {
-            var app = new GildedTros(new List<Item> { item });
+            var app = GildedTros.Create(new List<Item> { item });
             app.UpdateQuality();
         }
 
@@ -171,6 +174,22 @@ namespace GildedTros.App
             var item = CreateItem("Good Wine", -1, 50);
             UpdateOneDay(item);
             Assert.Equal(50, item.Quality);
+        }
+
+        [Fact]
+        public void Constructor_ShouldThrowArgumentNullException_WhenItemsIsNull()
+        {
+            Assert.Throws<ArgumentNullException>(() =>
+                GildedTros.Create(null));
+        }
+
+        [Fact]
+        public void Constructor_ShouldThrowArgumentException_WhenItemsIsEmpty()
+        {
+            var emptyList = new List<Item>();
+
+            Assert.Throws<ArgumentException>(() =>
+                GildedTros.Create(emptyList));
         }
     }
 }
